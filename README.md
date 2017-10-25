@@ -7,7 +7,7 @@ Figure 1: Tutorial Setup
 # Create an Azure IoT Hub
 1. The 1st thing to do is create an Azure account here... [https://azure.microsoft.com/en-us/free/](https://azure.microsoft.com/en-us/free/).
 2. Once you have an Azure account, create an ***Azure IoT Hub*** by following the instructions here... [https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-create-through-portal](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-create-through-portal)
-3. After creating the ***Hub***, copy the ***Hub Connection String***. To copy (see Figure 2), click ***Shared access policies***, then click  ***iothubowner*** and the ***Connection String*** will be on the bottom right. Save the connection string into a text file. This will be used to configure ***Device Explorer*** and the ***BLE Gateway***.
+3. After creating the ***Hub***, copy the ***Hub Connection String***. To copy (see Figure 2), click ***Shared access policies***, then click  ***iothubowner***, and the ***Connection String*** will be on the bottom right. Save the connection string into a text file. This will be used to configure ***Device Explorer*** and the ***BLE Gateway***.
 
 <img src="Images/ConnectString.png" width="1000">
 Figure 2: Connection String
@@ -42,7 +42,7 @@ Figure 4: EBSHCNZWZ Eval Board as a Sensor. LED and 110 Ohm resistor driven by G
 The ***BLE Gateway*** has two main components: the [Gateway Application](BLE-Gateway/BLE-Gateway-Python-Application/) and the [BLE UART Central Device](BLE-Gateway/BLE-UART-Central-Device/). The ***Gateway Application*** is written in Python and runs on a Windows 7 PC. The ***BLE UART Central Device*** is Taiyo Yuden's [EBSHSNZWZ](https://www.yuden.co.jp/wireless_module/document/evbmanual2/TY_BLE_EYSHSN_EVBManual_V1_1_20170925.pdf) eval board configured as a Bluetooth central device that simulates a UART connection over BLE.
 
 ## Gateway Application ##
-As mentioned earlier the [Gateway Application](BLE-Gateway/BLE-Gateway-Python-Application/) is written in Python. Why? Because Python has libraries that make it easy to connect to the cloud (i.e. [Requests](http://docs.python-requests.org/en/master/) and [Paho MQTT](https://www.eclipse.org/paho/clients/python/docs/)). With Python, the Request library gives us HTTP functionality, and Paho gives us MQTT. HTTP and MQTT  are protocols supported by the ***Azure IoT Hub***. We will use HTTP to provision the ***Sensor***. MQTT will be used to send sensor data to the ***Hub*** and to send messages to the ***Sensor***.
+As mentioned earlier, the [Gateway Application](BLE-Gateway/BLE-Gateway-Python-Application/) is written in Python. Why? Because Python has libraries that make it easy to connect to the cloud (i.e. [Requests](http://docs.python-requests.org/en/master/) and [Paho MQTT](https://www.eclipse.org/paho/clients/python/docs/)). With Python, the Request library gives us HTTP functionality, and Paho gives us MQTT. HTTP and MQTT  are protocols supported by the ***Azure IoT Hub***. We will use HTTP to provision the ***Sensor***. MQTT will be used to send sensor data to the ***Hub*** and to send messages to the ***Sensor***.
 
 The [Gateway Application](BLE-Gateway/BLE-Gateway-Python-Application/) is comprised of 3 python files: ***deviceManager.py***, ***d2cMsgSender.py*** and ***uartCentralGW.py***.		
      
